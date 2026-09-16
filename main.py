@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routers.auth_router import router as auth_router
 from app.routers.role_router import router as role_router
 from app.routers.department_router import router as department_router
+from app.routers.job_profile_router import router as job_profile_router
 from app.databse.db import Base
 from app.databse.db import engine
 app = FastAPI(
@@ -37,6 +38,9 @@ app.include_router(
 )
 app.include_router(
     department_router
+)
+app.include_router(
+    job_profile_router
 )
 
 @app.get("/")
