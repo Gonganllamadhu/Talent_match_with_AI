@@ -35,7 +35,7 @@ def create_department(
     return role
 
 
-router.get("/", response_model=list[DepartmentResponse], status_code=status.HTTP_200_OK)
+@router.get("/", response_model=list[DepartmentResponse], status_code=status.HTTP_200_OK)
 def get_departments(
         db : Session = Depends(get_db)
 ):
@@ -44,7 +44,7 @@ def get_departments(
     )
 
 
-router.get("/{id}", response_model=DepartmentResponse, status_code=status.HTTP_200_OK)
+@router.get("/{id}", response_model=DepartmentResponse, status_code=status.HTTP_200_OK)
 def get_department_by_ids(
          id : int,
         db : Session = Depends(get_db),

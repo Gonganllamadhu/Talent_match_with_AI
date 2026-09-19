@@ -5,3 +5,8 @@ sqlalchemy
 jose
 passlib
 bcrypt
+python-multipart
+langchain
+pypdf
+python-docx
+langchain-mistralai

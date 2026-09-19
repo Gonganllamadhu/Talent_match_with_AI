@@ -17,6 +17,8 @@ eggs/
 .eggs/
 lib64/
 parts/
+.env
+uploads/
 sdist/
 var/
 wheels/

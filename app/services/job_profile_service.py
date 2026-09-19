@@ -10,10 +10,10 @@ from sqlalchemy.orm import Session
 
 def get_job_by_id(
         db : Session,
-        job_id : int
+        job_profile_id : int
 ):
     return db.query(JobProfileDB).filter(
-        JobProfileDB.id == job_id
+        JobProfileDB.id == job_profile_id
     ).first()
 
 
@@ -125,16 +125,14 @@ def close_job_profile(
     return job
 
 
-
 def list_job_profiles(
-        db : Session,
-        skip : int = 0,
-        limit : int = 50
+    db: Session,
+    skip: int = 0,
+    limit: int = 50
 ):
     return (
-        db.query(JobProfileDB).filter(
-            JobProfileDB.created_at.desc()
-        )
+        db.query(JobProfileDB)
+        .order_by(JobProfileDB.created_at.desc())  # Sorting by the created_at column
         .offset(skip)
         .limit(limit)
         .all()

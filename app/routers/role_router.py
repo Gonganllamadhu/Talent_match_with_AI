@@ -35,16 +35,16 @@ def create_role(
     return role
 
 
-router.get("/", response_model=list[RoleResponse], status_code=status.HTTP_200_OK)
-def get_roles(
+@router.get("/", response_model=list[RoleResponse], status_code=status.HTTP_200_OK)
+def get_roles_data(
         db : Session = Depends(get_db)
 ):
-    return get_roles(
+    return get_role(
         db = db
     )
 
 
-router.get("/{id}", response_model=RoleResponse, status_code=status.HTTP_200_OK)
+@router.get("/{id}", response_model=RoleResponse, status_code=status.HTTP_200_OK)
 def get_role_by_id(
          id : int,
         db : Session = Depends(get_db),
